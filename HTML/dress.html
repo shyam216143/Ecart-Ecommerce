@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="shortcut icon" href="../image/favicon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/style1.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:300');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+h1 {
+	font-family: 'Arima Madurai', cursive;
+	color: pink;
+	font-size: 4rem;
+	letter-spacing: -3px;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+	position: absolute;
+	z-index: 3;
+}
+
+.container {
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* // min-height: 100vh; */
+	min-height: 35rem;
+	background-image: linear-gradient(to bottom,  rgba(255,168,76,0.6) 0%,rgba(255,123,13,0.6) 100%), url('https://images.unsplash.com/photo-1446824505046-e43605ffb17f');
+	background-blend-mode: soft-light;
+	background-size: cover;
+	background-position: center center;
+	padding: 2rem;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+}
+
+.bird--one {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+	background-size: auto 100%;
+	width: 88px;
+	height: 125px;
+	will-change: background-position;
+	
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+	animation-iteration-count: infinite;
+		animation-duration: 1s;
+		animation-delay: -0.5s;		
+	}
+	
+	.bird--two {
+        background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+	background-size: auto 100%;
+	width: 88px;
+	height: 125px;
+	will-change: background-position;
+	
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+		animation-duration: 0.9s;
+		animation-delay: -0.75s;
+	}
+	
+	.bird--three {
+        background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+	background-size: auto 100%;
+	width: 88px;
+	height: 125px;
+	will-change: background-position;
+	
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+		animation-duration: 1.25s;
+		animation-delay: -0.25s;
+	}
+	
+	.bird--four {
+        background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+	background-size: auto 100%;
+	width: 88px;
+	height: 125px;
+	will-change: background-position;
+	
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+		animation-duration: 1.1s;
+		animation-delay: -0.5s;
+	}
+
+
+
+.bird-container--one {
+	position: absolute;
+	top: 20%;
+	left: -10%;
+	transform: scale(0) translateX(-10vw);
+	will-change: transform;
+	
+	animation-name: fly-right-one;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	
+	
+		animation-duration: 15s;
+		animation-delay: 0;
+	}
+	
+	.bird-container--two {
+        position: absolute;
+	top: 20%;
+	left: -10%;
+	transform: scale(0) translateX(-10vw);
+	will-change: transform;
+	
+	animation-name: fly-right-one;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+		animation-duration: 16s;
+		animation-delay: 1s;
+	}
+	
+    .bird-container--three {
+        position: absolute;
+	top: 20%;
+	left: -10%;
+	transform: scale(0) translateX(-10vw);
+	will-change: transform;
+	
+	animation-name: fly-right-one;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+		animation-duration: 14.6s;
+		animation-delay: 9.5s;
+	}
+	
+	.bird-container--four {
+        position: absolute;
+	    top: 20%;
+	    left: -10%;
+	    transform: scale(0) translateX(-10vw);
+	    will-change: transform;
+	
+	    animation-name: fly-right-one;
+	     animation-timing-function: linear;
+	    animation-iteration-count: infinite;
+		animation-duration: 16s;
+		animation-delay: 10.25s;
+	}
+	
+
+
+@keyframes fly-cycle {
+	
+	100% {
+		background-position: -900px 0;
+	}
+	
+}
+
+@keyframes fly-right-one {
+	
+	0% {
+		transform: scale(0.3) translateX(-10vw);
+	}
+	
+	10% {
+		transform: translateY(2vh) translateX(10vw) scale(0.4);
+	}
+	
+	20% {
+		transform: translateY(0vh) translateX(30vw) scale(0.5);
+	}
+	
+	
+	40% {
+		transform: translateY(2vh) translateX(70vw) scale(0.6);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.6);
+	}
+	
+	60% {
+		transform: translateY(0vh) translateX(110vw) scale(0.6);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.6);
+	}
+	
+}
+
+@keyframes fly-right-two {
+	
+	0% {
+		transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+	}
+	
+	10% {
+		transform: translateY(0vh) translateX(10vw) scale(0.4);
+	}
+	
+	20% {
+		transform: translateY(-4vh) translateX(30vw) scale(0.6);
+	}
+	
+	30% {
+		transform: translateY(1vh) translateX(50vw) scale(0.45);
+	}
+	
+	40% {
+		transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.45);
+	}
+	
+	51% {
+		transform: translateY(0vh) translateX(110vw) scale(0.45);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.45);
+	}
+	
+}
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .class1{
+            height: 07%;
+            border: 1px solid white;
+            position: relative;
+            width: 100%;
+
+
+        }
+        .class2{
+            height: 66%;
+            /* background: url(../HTML/birdsAnimated.html); */
+            border: 1px solid ;
+            position: relative;
+            width: 100%;
+            
+        }
+        .class3{
+            position: relative;
+            height: 37%;
+            border: 1px solid white ;
+            width: 100%;
+        }
+       
+    </style>
+</head>
+<body>
+    <header class="class1">
+        <div class="header_left">
+            <a href="#">Ecart-Ecommerce</a>
+            <div class="header_left-p">
+                <p><a href="#">Explorer</a><span>Goals<i class="fas-solid fa fa-plus"></i></span></p>
+            </div>  
+        </div>
+        <div class="header_center">
+            <input type="text" class="head_center_input" placeholder="Search The products, Brands and More"><i class="fa fa-search"></i>
+        </div>
+        <div class="header_right">
+            <a href="../HTML/login.html" class="action">login</a>
+            <a href="../HTML/signup.html" class="action">signup</a>
+            <a href="../HTML/index.html" class="action">Home</a>
+            <a href="#" class="more">more<i class="fas-solid fa fa-sort-down">
+            </i></a>
+            <a href="#" class="cart"><i class="fas-solid fa fa-shopping-cart"></i></a>
+        </div>
+    </header>
+   
+   
+   <footer class="class3">
+
+    <div class="footer-row">
+        <div class="footer-col-1">
+            <div class="footer-heading">
+                 <p>ABOUT</p>
+            </div>
+            <div class="footer-list">
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Flipkart Stories</a>
+                <a href="#">Press</a>
+                <a href="#">MyecartWholesale</a>
+            </div>
+        </div>
+        <div class="footer-col-2">
+            <div class="footer-heading">
+                 <p>HELP</p>
+            </div>
+            <div class="footer-list">
+                <a href="#">Payments</a>
+                <a href="#">Shipping</a>
+                <a href="#">Cancellation & Returns</a>
+                <a href="#">FAQ</a>
+                <a href="#">Report Infringement</a>
+                
+            </div>
+        </div>
+        <div class="footer-col-3">
+            <div class="footer-heading">
+                 <p>POLICY</p>
+            </div>
+            <div class="footer-list">
+                <a href="#">Return Policy</a>
+                <a href="#">Terms Of Use</a>
+                <a href="#">Security</a>
+                <a href="#">Privacy</a>
+                <a href="#">Sitemap</a>
+                <a href="#">EPR Compliance</a>
+            </div>
+        </div>
+        <div class="footer-col-4">
+            <div class="footer-heading">
+                 <p>SOCIAL</p>
+            </div>
+            <div class="footer-list">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+               
+            </div>
+        </div>
+
+        <div class="footer-col-5">
+            <div class="footer-heading">
+                 <p>Mail Us</p>
+            </div>
+            <div class="footer-list">
+                 <p>Lorem ipsum dolor sit,
+                     amet consectetur adipisicing elit. <br>
+                      Porro sunt quas illo nesciunt ab saepe illum, <br>
+                       vitae itaque libero animi. Eaque sapiente iste quae <br>
+                     optio corporis maiores totam earum ut.</p>
+               
+            </div>
+        </div>
+
+        <div class="footer-col-6">
+            <div class="footer-heading">
+                 <p>Registered Office Address</p>
+            </div>
+            <div class="footer-list-address">
+             <p>Ecart Internet Private Limited,</p>
+             <p>Malenga Towers, Begonia &</p>
+             <p>Clove Embassy Tech Village,</p>
+             <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+             <p>Hyderabad, 500045,</p>
+             <p>Telangana, India</p>
+             <p>CIN : U51109KA2012PTC066107</p>
+             <p> Telephone:<span> 1800 000 0000</span></p>
+               
+            </div>
+        </div>
+    </div>
+    <div class="footer-row2">
+        <div class="footer-row2-col">
+            <p> <i class="fas-solid fa fa-shopping-bag"></i>Sell On MyEcart</p>
+        </div>
+        <div class="footer-row2-col">
+            <p><i class="fas-solid fa fa-star"></i>Advertisement</p>
+        </div>
+        <div class="footer-row2-col">
+            <p><i class="fas-solid fa fa-gift"></i>Gift Cards</p>
+        </div>
+        <div class="footer-row2-col">
+            <p><i class="fas-solid fa fa-question-circle"></i>Help Center</p>
+        </div>
+        <div class="footer-row2-col">
+            <p>© 2007-2021 shyamecart.com</p>
+        </div>
+        <div class="footer-row2-col">
+            <img src="../image/payment.png" alt="payments">
+        </div>
+    </div>
+</footer>
+    
+    
+</body>
+</html>
