@@ -10,8 +10,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="font awsome icon/css/all.css">
 </head>
+<style>
+    
+.more {
+  position: relative;
+  display: inline-block;
+}
+
+.more_dropdown {
+  display: none;
+  margin: -12px;
+  color: yellow;
+  position: absolute;
+  background-color:transparent;
+  min-width: 150px;
+  text-decoration: underline;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+.more_dropdown a {
+  color: rgb(202, 228, 5);
+  padding: 10px 16px -12px 0px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: -22px;
+  padding-bottom: 1px;
+}
+
+
+
+.more:hover .more_dropdown {
+    display: block;
+   
+} 
+.more.more_dropdown a:hover{
+    color: blueviolet;
+}
+
+
+</style>
 <body >
-    <header>
+    <header class="head">
         <div class="header_left">
             <a href="#">Ecart-Ecommerce</a>
             <div class="header_left-p">
@@ -25,21 +65,64 @@
             <a href="../HTML/login.html" class="action">login</a>
             <a href="../HTML/signup.html" class="action">signup</a>
             <a href="../HTML/index.html" class="action">Home</a>
-            <li><a href="#" >More &dtrif;</a>
-                <!-- <ul class="dropdown">
-                  <li><a href="#">Web Development</a>         </li>
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">Illustration</a>           </li>                              
-                  <li><a href="#">Iconography</a>             </li>
-                </ul> -->
-              </li>
+             <div class="more">
+                <span class="more_lan">
+                        More <i class="fas-solid fa fa-angle-down"  ></i>
+                </span>
+                <div class="more_dropdown none">
+                   <a href="#">Link 1</a>
+                   <a href="#">Link 2</a>
+                   <a href="#">Link 3</a>
+                   
+                </div>
+             </div>
+            
             <a href="../HTML/cart.html" class="cart"><i class="fas-solid fa fa-shopping-cart"></i></a>
         </div>
     </header>
 
 
-    <!-- banner section -->
+   
+    
+    <!-- category section -->
     <section>
+        <div class="category_row" >
+            <div class="category_col">
+                <a href="#xyz" class="xyz"><img src="../image/dresses.jpeg" alt=""  height="95%" width="95%"></a>
+                <hs>
+                    Top Offers
+                </hs>
+            </div>
+            <div class="category_col">
+                <a href="../HTML/mobiles.html"><img src="../image/mobile_image.jpeg" alt="" height="95%" width="90%"></a>
+                <hs>
+                   Mobiles
+                </hs>
+                
+            </div>
+            <div class="category_col">
+                <a href="../HTML/electronics.html"><img src="../image/electronics.jpeg" alt="" height="95%" width="95%"></a>
+                <hs>
+                    Electronics
+                </hs>
+            </div>
+            <div class="category_col">
+                <a href="../HTML/footwear.html"><img src="../image/foot_wear.jpeg" alt="" height="95%" width="90%"></a>
+                <hs>
+                    Footwear
+                </hs>
+            </div>
+            <div class="category_col">
+                <a href="../HTML/dress.html"><img src="../image/dresses.jpeg" alt="" height="95%" width="95%"></a>
+                <hs>
+                    Dresses
+                </hs>
+            </div>
+        </div>
+    </section>
+
+     <!-- banner section -->
+     <section>
         <div class="banner">
             <div class="slider">
                 <img src="../image/banner2.jpg" alt="banner" >
@@ -47,43 +130,6 @@
                 <img src="../image/banner2.jpg" alt="banner" >
                 <img src="../image/banner2.jpg" alt="banner" >
                 <img src="../image/banner2.jpg" alt="banner" >
-            </div>
-        </div>
-    </section>
-    
-    <!-- category section -->
-    <section>
-        <div class="category_row" >
-            <div class="category_col">
-                <img src="../image/dresses.jpeg" alt=""  height="95%" width="95%">
-                <hs>
-                    Top Offers
-                </hs>
-            </div>
-            <div class="category_col">
-                <img src="../image/mobile_image.jpeg" alt="" height="95%" width="90%">
-                <hs>
-                   Mobiles
-                </hs>
-                
-            </div>
-            <div class="category_col">
-                <img src="../image/electronics.jpeg" alt="" height="95%" width="95%">
-                <hs>
-                    Electronics
-                </hs>
-            </div>
-            <div class="category_col">
-                <img src="../image/foot_wear.jpeg" alt="" height="95%" width="90%">
-                <hs>
-                    Footwear
-                </hs>
-            </div>
-            <div class="category_col">
-                <img src="../image/dresses.jpeg" alt="" height="95%" width="95%">
-                <hs>
-                    Dresses
-                </hs>
             </div>
         </div>
     </section>
@@ -178,8 +224,8 @@
                  <h6>Now<i class="fas-solid fa fa-rupee"></i>499</h6>
              </div>
              <div class="common-col col-men">
-                 <img src="../image/caps.jpeg"   alt="mobile">
-                 <h3>cap</h3>
+                 <img src="../image/dresses.jpeg"   alt="mobile">
+                 <h3>Ladies Wear</h3>
                  <h4>up to 20% off</h4>
                  <h6>Now<i class="fas-solid fa fa-rupee"></i>159</h6>
              </div>
@@ -263,8 +309,8 @@
                  <h6>Now<i class="fas-solid fa fa-rupee"></i>1899</h6>
              </div>
              <div class="common-col col-headphones">
-                 <img src="../image/watch.jpeg" alt="mobile">
-                 <h3>Watchs</h3>
+                 <img src="../image/LAPTOPS.jpeg" alt="mobile">
+                 <h3>Laptops</h3>
                  <h4>new lancher</h4>
                  <h6>Now<i class="fas-solid fa fa-rupee"></i>999</h6>
              </div>
@@ -341,7 +387,7 @@
 <!-- trending offers section -->
 
 <section>
-    <div class="card">
+    <div class="card" id="xyz">
         <div class="common-heading">
          <div class="common-heading-left">
              <h1>trending offers</h1>

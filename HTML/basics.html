@@ -5,98 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        
-  .S {
-    margin: 0 auto;
-    display: block;
-  
-    padding: 120px 0 0 0;  
-    text-align: center;
-    font-size: 16px;
-  }
-
-   ul li {
-      list-style: none;
-      margin: 0 auto;
-      border-left: 2px solid #3ca0e7;
-      display: inline-block;
-      padding: 0 30px;
-      position: relative;
-      text-decoration: none;
-      text-align: center;
-      font-family: arvo;
+   <style>
+    body{
+      background-color: aqua;
+      
     }
-
-   li a {
-      color: black;
+    /* .class1{
+      background-color: red;
+      width: 50rem;
+    } */
+    .nested_class11{
+      background-color: rgb(55, 222, 26);
+      width: 50rem;
+      
     }
-
-    .primary-navigation li a:hover {
-      color: #3ca0e7;
+    .nested_class21{
+      background-color: rgb(59, 26, 222);
+      width: 50rem;
     }
-
-    .primary-navigation li:hover {
-      cursor: pointer;
+    .nested_class3{
+      background-color: rgb(222, 26, 153);
+      width: 50%;
     }
-
-    .primary-navigation ul li ul {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      padding-left: 0;
-      left: 0;
-      display: none;
-      background: white;
+    .class2{
+      background-color: rgb(238, 182, 14);
+      width: 50vw;
     }
-
-    .primary-navigation ul li:hover > ul,
-    ul li ul:hover {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-      min-width: 250px;
-      text-align: left;
-      padding-top: 20px;
-      box-shadow: 0px 3px 5px -1px #ccc;
+    .class3{
+      background-color: rgb(6, 185, 36);
+      width: 50em;
     }
-
-    .primary-navigation ul li ul li {
-      clear: both;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 20px;
-      border-style: none;
-    }
-
-    .primary-navigation ul li ul li a:hover {
-      padding-left: 10px;
-      border-left: 2px solid #3ca0e7;
-      transition: all 0.3s ease;
-    }
-
-
-
-    .primary-navigation a {
-
-    text-decoration: none;
-    }
-
-    .primary-navigation :hover {
-        color: #3CA0E7;
-    }
- 
-
-
-    .primary-navigation ul li ul li a { transition: all 0.5s ease; }
-
-
-    </style>
+   </style>
+    <title>Heading</title>
 </head>
 <body>
     
         
-          
+<!--           
           <li class="s">
             <a href="#" >Work &dtrif;</a>
             <ul class="dropdown">
@@ -106,8 +51,14 @@
               <li><a href="#">Iconography</a>             </li>
             </ul>
           </li>
-          
+           -->
+   <div class="class1">
+    <div class="nested_class1"><div class="nested_class11">nestedclass 11</div></div>
+    <div class="nested_class2"><div class="nested_class21">nestedclass 21</div></div>
+    <div class="nested_class3">nested_class3</div>
+   </div>
+   <div class="class2">block2</div>
+   <div class="class3">block3</div>
     
-      
 </body>
 </html>
