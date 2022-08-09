@@ -1,64 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-   <style>
-    body{
-      background-color: aqua;
-      
-    }
-    /* .class1{
-      background-color: red;
-      width: 50rem;
-    } */
-    .nested_class11{
-      background-color: rgb(55, 222, 26);
-      width: 50rem;
-      
-    }
-    .nested_class21{
-      background-color: rgb(59, 26, 222);
-      width: 50rem;
-    }
-    .nested_class3{
-      background-color: rgb(222, 26, 153);
-      width: 50%;
-    }
-    .class2{
-      background-color: rgb(238, 182, 14);
-      width: 50vw;
-    }
-    .class3{
-      background-color: rgb(6, 185, 36);
-      width: 50em;
-    }
-   </style>
-    <title>Heading</title>
+    <title>JS Mouse Events - Button Demo</title>
 </head>
 <body>
-    
-        
-<!--           
-          <li class="s">
-            <a href="#" >Work &dtrif;</a>
-            <ul class="dropdown">
-              <li><a href="#">Web Development</a>         </li>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Illustration</a>           </li>                              
-              <li><a href="#">Iconography</a>             </li>
-            </ul>
-          </li>
-           -->
-   <div class="class1">
-    <div class="nested_class1"><div class="nested_class11">nestedclass 11</div></div>
-    <div class="nested_class2"><div class="nested_class21">nestedclass 21</div></div>
-    <div class="nested_class3">nested_class3</div>
-   </div>
-   <div class="class2">block2</div>
-   <div class="class3">block3</div>
-    
+    <button id="btn">Click me with any mouse button: left, right, middle, ...</button>
+    <p id="message"></p>
+    <script>
+        let btn = document.querySelector('#btn');
+
+        // disable context menu when right-mouse clicked
+        btn.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+
+        // show the mouse event message
+        btn.addEventListener('mouseup', (e) => {
+            let msg = document.querySelector('#message');
+            switch (e.button) {
+                case 0:
+                    msg.textContent = 'Left mouse button clicked.';
+                    break;
+                case 1:
+                    msg.textContent = 'Middle mouse button clicked.';
+                    break;
+                case 2:
+                    msg.textContent = 'Right mouse button clicked.';
+                    break;
+                default:
+                    msg.textContent = `Unknown mouse button code: ${event.button}`;
+            }
+        });
+    </script>
 </body>
 </html>
