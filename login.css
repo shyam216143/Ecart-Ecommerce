@@ -1,0 +1,40 @@
+body{
+    -webkit-text-size-adjust: 100%;
+letter-spacing: 0!important;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+background: #f3f3f3;
+color: #333;
+font-size: 16px;
+direction: ltr;
+margin: 0;
+height: 100%;
+}   
+@media (min-width: 740px){
+#appMountPoint > div .login-wrapper-background {
+    background-size: cover;
+    /* display: block; */
+    height: 100%;
+    min-height: 100vh;
+    /* overflow: hidden; */
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+#appMountPoint > div .login-wrapper-background{
+  /* display: none; */
+}
+.hybrid-login-wrapper .login-wrapper-background {
+    /* opacity: .5; */
+}
+* {
+    letter-spacing: 0!important;
+}
+
+div {
+    /* display: block; */
+}
+
+
+}
+

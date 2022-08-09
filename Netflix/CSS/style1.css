@@ -217,6 +217,9 @@ body{
     min-height: 54%;
     z-index: -2;
   }
+  .feature_bg_video1 {
+    width: 100%;
+  }
   .feature_poster_2_container{
     position: absolute;
     bottom: 8%;
