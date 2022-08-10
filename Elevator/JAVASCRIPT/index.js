@@ -1,96 +1,142 @@
-const doorOpenSpeed = 3
-
-var Elevator = function() {
-	this.currentFloor = 1;
-	// 1 floor ever 3 seconds
-	this.speed = 3;
-	this.doorOpenTime = 3;
-	this.doorsOpen = false;
-	this.isMoving = false;
-	this.availableFloors = Array.from({length: 10}, (min, max) => max+1); 
-	
-	this.openDoors = function(doors) {
-		for (let i = 0; i < doors.length; i++) {
-			doors[i].classList.add(doors[i].id + "-moved");
-		} 
-		this.doorsOpen = true;
-
-	}
-	this.closeDoors = function(doors) {
-		for (let i = 0; i < doors.length; i++) {
-			doors[i].classList.remove(doors[i].id + "-moved");
+window.onload = () => {
+	let elevator = document.querySelector(".elevator");
+	let elevatorDoor = elevator.querySelector(".elevator-door");
+	let elevatorLight = elevator.querySelector(".elevator-light");
+	let floors = document.querySelectorAll(".building .floor");
+	let buttons = document.querySelectorAll(".handle button");
+	let display = document.querySelector(".display");
+  
+	var destinyFloors = [];
+	var currentFloor = null;
+	var leavingFloor = false;
+	var elevatorStatus = 'idle';
+	var elevatorWaitingTime = 2000;
+	var elevatorWaitTime = 2000;
+	var previousTime = new Date().getTime();
+	var deltaTime = 0;
+  
+	elevatorDoor.style.width = "1px";
+	elevator.style.offsetTop = floors[0].offsetTop + "px";
+	// moving, opening, waiting, closing, idle
+  
+	buttons.forEach(button => {
+	  button.addEventListener("click", function () {
+		let setFloor = this.getAttribute("data-set-floor");
+		let selectedFloor = Array.prototype.slice.apply(
+		document.querySelectorAll(".building .floor")).
+		filter(f => f.getAttribute("data-floor") == setFloor)[0];
+  
+		if (destinyFloors.find(df => df.getAttribute("data-floor") == selectedFloor.getAttribute("data-floor")) == null) {
+		  if (selectedFloor.getAttribute("data-floor") != currentFloor.getAttribute("data-floor")) {
+			destinyFloors.push(selectedFloor);
+		  }
 		}
-		this.doorsOpen = false;
-	}
-}
-
-var Panel = function(elevator) {
-
-	var enter = document.querySelector("#enter");
-	var inputButtons = document.querySelectorAll(".panel-input-button");
-
-	this.updateDisplay = function(floor) {
-		var floorNumber = document.querySelector("#floor-number");
-		floorNumber.innerHTML = floor;
-	}
-	this.displayInput = function(button) {
-		var display = document.querySelector("#panel-display");
-		display.innerHTML = button.id;
-	}
-
-	this.pauseInput = function() {
-		elevator.isMoving = false;
-		var arrivalNotification = document.querySelector("#arrived-notification");
-		arrivalNotification.innerHTML = "*";
-	}
-
-	this.moveElevator = function() {
-		var requestedFloor = document.querySelector("#panel-display").innerHTML;
-		if (!elevator.isMoving) {
-			if (requestedFloor in elevator.availableFloors) {
-				if (requestedFloor != elevator.currentFloor) {
-					elevator.isMoving = true;
-					var arrivalNotification = document.querySelector("#arrived-notification");
-					var upArrow = document.querySelector("#up-arrow");
-					var downArrow = document.querySelector("#down-arrow");
-					arrivalNotification.innerHTML = "";
-					this.updateDisplay(requestedFloor);
-
-					if (requestedFloor > elevator.currentFloor) {
-						upArrow.classList.remove("hide");
-						downArrow.classList.add("hide");
-					}
-					else {
-						downArrow.classList.remove("hide");
-						upArrow.classList.add("hide");
-					}
-
-					var travelTime = (Math.abs(requestedFloor - elevator.currentFloor) * 
-					                         (elevator.speed * 1000)) + 
-											 (doorOpenSpeed * 1000) +
-					                         (elevator.doorOpenTime * 1000);
-					var arrivalTime = (Math.abs(requestedFloor - elevator.currentFloor) * 
-					                         (elevator.speed * 1000)) + 
-											 (doorOpenSpeed * 1000) +
-					                         (elevator.doorOpenTime * 2000);
-
-					setTimeout(this.pauseInput.bind(this), travelTime);
-					elevator.currentFloor = requestedFloor;
-					var elevatorDoors = document.querySelectorAll(".elevator-door");
-					elevator.openDoors(elevatorDoors);
-					setTimeout(elevator.closeDoors.bind(this, elevatorDoors), elevator.doorOpenTime * 1000);
-					setTimeout(elevator.openDoors.bind(this, elevatorDoors), arrivalTime);
-					setTimeout(elevator.closeDoors.bind(this, elevatorDoors), arrivalTime + (elevator.doorOpenTime * 1000));
-				}
+		leavingFloor = true;
+		if (elevatorStatus == 'idle') {
+		  elevatorStatus = 'closing';
+		}
+	  });
+	});
+  
+	function updateElevator() {
+	  deltaTime = new Date().getTime() - previousTime;
+	  previousTime = new Date().getTime();
+  
+	  requestAnimationFrame(updateElevator);
+	  // console.log(elevator.offsetTop)
+	  var elevatorWithinFloor = false;
+	  for (let i = 0; i < floors.length; i++) {
+		if (elevator.offsetTop > floors[i].offsetTop && elevator.offsetTop < floors[i].offsetTop + 10) {
+		  // console.log("elevator within floor "+i);
+		  elevatorWithinFloor = true;
+		  currentFloor = floors[i];
+  
+		  if (!leavingFloor) {
+			if (destinyFloors.some(df => df.getAttribute("data-floor") == currentFloor.getAttribute("data-floor"))) {
+			  // console.log("Reached floor")
+			  destinyFloors = destinyFloors.filter(df => df.getAttribute("data-floor") != currentFloor.getAttribute("data-floor"));
+			  elevatorStatus = 'opening';
 			}
+  
+		  } else {
+			// console.log("Leaving floor")
+		  }
 		}
+	  }
+  
+	  if (!elevatorWithinFloor) {
+		// console.log("Elevator out of any floor")
+		if (leavingFloor) {
+		  leavingFloor = false;
+		}
+	  }
+  
+	  if (elevatorStatus != 'moving') {
+		if (elevatorStatus == 'opening') {
+		  if (elevatorDoor.offsetWidth > 1) {
+			elevatorDoor.style.width = elevatorDoor.offsetWidth - 1 + "px";
+		  } else {
+			if (destinyFloors.length == 0) {
+			  elevatorStatus = 'idle';
+			} else {
+			  elevatorStatus = 'waiting';
+			  elevatorWaitingTime = elevatorWaitTime;
+			}
+		  }
+		}
+		if (elevatorStatus == 'waiting') {
+		  if (elevatorWaitingTime > 0) {
+			elevatorWaitingTime -= deltaTime;
+		  } else {
+			elevatorStatus = 'closing';
+		  }
+		}
+		if (elevatorStatus == 'closing') {
+		  if (elevatorDoor.offsetWidth < 34) {
+			elevatorDoor.style.width = elevatorDoor.offsetWidth + 1 + "px";
+		  } else {
+			elevatorStatus = 'moving';
+		  }
+		}
+	  }
+  
+	  if (destinyFloors[0] != null && elevatorStatus == 'moving') {
+		if (destinyFloors[0].offsetTop > elevator.offsetTop - 7) {
+		  elevator.style.top = elevator.offsetTop - 7 + 2 + "px";
+		} else {
+		  elevator.style.top = elevator.offsetTop - 7 - 2 + "px";
+		}
+	  }
+  
+	  updateButtons();
+	  updateDisplay();
 	}
-
-	enter.addEventListener("click", this.moveElevator.bind(this), true);
-	for (let i = 0; i < inputButtons.length; i++) {
-		inputButtons[i].addEventListener("click", this.displayInput.bind(this, inputButtons[i]), true);
+	updateElevator();
+  
+	function updateDisplay() {
+	  display.innerHTML = [
+	  "Térreo",
+	  "Primeiro Andar",
+	  "Segundo Andar",
+	  "Terceiro Andar",
+	  "Quarto Andar",
+	  "Quinto Andar",
+	  "Sexto Andar"][
+	  parseInt(currentFloor.getAttribute("data-floor"))] + " " + (
+	  destinyFloors[0] != null ?
+	  destinyFloors[0].offsetTop < currentFloor.offsetTop ?
+	  '<br />Subindo' :
+	  '<br />Descendo' :
+	  '');
 	}
-}
-
-var elevator = new Elevator;
-var panel = new Panel(elevator);
+  
+	function updateButtons() {
+	  buttons.forEach(button => {
+		if (destinyFloors.find(df => df.getAttribute("data-floor") == button.getAttribute("data-set-floor"))) {
+		  button.classList.add("active");
+		} else {
+		  button.classList.remove("active");
+		}
+	  });
+	}
+  };
