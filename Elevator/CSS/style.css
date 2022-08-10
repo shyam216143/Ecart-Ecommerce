@@ -69,10 +69,10 @@ button.btn-floor {
   outline: none;
 }
 button.btn-floor:hover {
-  border-color: lime;
+  border-color: rgb(240, 16, 4);
 }
 button.btn-floor:active, button.btn-floor.active {
-  background: lime;
+  background: rgb(230, 5, 1);
   color: #ccffcc;
   border-color: green;
 }

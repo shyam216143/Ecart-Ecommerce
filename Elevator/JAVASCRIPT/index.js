@@ -18,17 +18,18 @@ window.onload = () => {
 	elevatorDoor.style.width = "1px";
 	elevator.style.offsetTop = floors[0].offsetTop + "px";
 	// moving, opening, waiting, closing, idle
-  
+//   console.log( floors[0].offsetTop + "px")
 	buttons.forEach(button => {
 	  button.addEventListener("click", function () {
 		let setFloor = this.getAttribute("data-set-floor");
 		let selectedFloor = Array.prototype.slice.apply(
 		document.querySelectorAll(".building .floor")).
 		filter(f => f.getAttribute("data-floor") == setFloor)[0];
-  
+    //    console.log(selectedFloor)
 		if (destinyFloors.find(df => df.getAttribute("data-floor") == selectedFloor.getAttribute("data-floor")) == null) {
 		  if (selectedFloor.getAttribute("data-floor") != currentFloor.getAttribute("data-floor")) {
 			destinyFloors.push(selectedFloor);
+			// console.log(destinyFloors)
 		  }
 		}
 		leavingFloor = true;
@@ -39,21 +40,26 @@ window.onload = () => {
 	});
   
 	function updateElevator() {
+		// console.log( previousTime)
 	  deltaTime = new Date().getTime() - previousTime;
+	//   console.log( deltaTime)
 	  previousTime = new Date().getTime();
   
 	  requestAnimationFrame(updateElevator);
 	  // console.log(elevator.offsetTop)
 	  var elevatorWithinFloor = false;
+	//   console.log( floors.length)
 	  for (let i = 0; i < floors.length; i++) {
+		// console.log(elevator.offsetTop)
 		if (elevator.offsetTop > floors[i].offsetTop && elevator.offsetTop < floors[i].offsetTop + 10) {
-		  // console.log("elevator within floor "+i);
+		//   console.log("elevator within floor "+i);
+		// console.log(elevator.offsetTop <floors[i].offsetTop+10)
 		  elevatorWithinFloor = true;
 		  currentFloor = floors[i];
   
 		  if (!leavingFloor) {
 			if (destinyFloors.some(df => df.getAttribute("data-floor") == currentFloor.getAttribute("data-floor"))) {
-			  // console.log("Reached floor")
+			//   console.log(destinyFloors.some(df => df.getAttribute("data-floor")));
 			  destinyFloors = destinyFloors.filter(df => df.getAttribute("data-floor") != currentFloor.getAttribute("data-floor"));
 			  elevatorStatus = 'opening';
 			}
@@ -94,6 +100,7 @@ window.onload = () => {
 		if (elevatorStatus == 'closing') {
 		  if (elevatorDoor.offsetWidth < 34) {
 			elevatorDoor.style.width = elevatorDoor.offsetWidth + 1 + "px";
+			// console.log(elevatorDoor.style.width)
 		  } else {
 			elevatorStatus = 'moving';
 		  }
@@ -103,6 +110,7 @@ window.onload = () => {
 	  if (destinyFloors[0] != null && elevatorStatus == 'moving') {
 		if (destinyFloors[0].offsetTop > elevator.offsetTop - 7) {
 		  elevator.style.top = elevator.offsetTop - 7 + 2 + "px";
+		  console.log(elevator.offsetTop  )
 		} else {
 		  elevator.style.top = elevator.offsetTop - 7 - 2 + "px";
 		}
