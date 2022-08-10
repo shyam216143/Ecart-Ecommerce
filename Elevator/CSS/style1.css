@@ -1,32 +1,50 @@
 body{
     
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 .main{
+    position: absolute;
     background-color: aqua;
     width: 300px;
     height: 700px;
-    margin-left: 20%;
-    margin-top: 20%;
+    top: 90px;
+    left: 29rem;
+    text-align: center ;
+   display: flex;
+   align-items: center;
+   justify-content: center  ;
+   /* flex-direction: column; */
     
 }
 .subMain1{
     
     width: 100px;
-    height: 100%;
+    height: 700px;
     background-color: brown;
+}
+.subMain2{
+
+    width: 100px;
+    height: 700px;
+    background-color: rgb(165, 144, 42);
 }
 .subMain3{
-    
+   
     width: 100px;
-    height: 100%;
-    background-color: brown;
-    margin-left: 75%;
-    margin-top: -175%;
+    height: 700px;
+    background-color: rgb(42, 165, 63);
 }
-.lift{
+   
+.lift1{
+    height: 100px;
+    width: 100px;   
+    background-color: rgb(12, 12, 11);
+}
+.lift2{
+    /* position: absolute; */
     height: 100px;
     width: 100px;
-    background-color: yellow;
+    /* opacity: 1; */
+    background-color: rgb(255, 30, 0);
 }
