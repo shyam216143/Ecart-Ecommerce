@@ -28,6 +28,7 @@ body{
     width: 100px;
     height: 700px;
     background-color: rgb(165, 144, 42);
+    /* background: transparent; */
 }
 .subMain3{
    
@@ -36,15 +37,25 @@ body{
     background-color: rgb(42, 165, 63);
 }
    
-.lift1{
+#lift1{
     height: 100px;
     width: 100px;   
+    margin-top: 600px;
     background-color: rgb(12, 12, 11);
 }
-.lift2{
+#lift2{
     /* position: absolute; */
     height: 100px;
     width: 100px;
+    margin-top: 600px;
     /* opacity: 1; */
     background-color: rgb(255, 30, 0);
+}
+.subMain2 .floor{
+    flex-direction: row-reverse;
+    width: 100px;
+    height: 100px;
+    /* padding-top: 12px; */
+    align-items: flex-end   ;
+    border-bottom: 1px solid rgb(2, 1, 2);
 }

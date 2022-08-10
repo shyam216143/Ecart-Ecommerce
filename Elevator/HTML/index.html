@@ -1,56 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<link rel="stylesheet" type="text/css" href="../CSS/style.css">
-	<title>Jelevator</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../CSS/style.css">
 </head>
+
 <body>
-	<div id="container">
-		<div id="feedback-panel">
 
-			<div id="directional-arrows">
-					<img id="up-arrow" src="https://drive.google.com/uc?export=view&id=1qdazZI7Up-xMaidLLorgYtTTzP_pOjAD" height="20px" width="20px">
-					<img id="down-arrow" src="https://drive.google.com/uc?export=view&id=1bDPC6QDSA9__swiKJr8wLcfLr_GtUPyM" height="20px" width="20px">
+	<div class="handle">
+		<div class="display">Lorem ipsum dolor sit amet, consecteteuer adpsim elit</div>
+		<div class="buttons">
+			<div class="btn-container bottom">
+				<button class="btn-floor" data-set-floor="0">T</button>
 			</div>
-			<div id="floor-number">1</div>
-			<div class="arrived" id="arrived-notification"></div>
-		</div>
-		
-		<div id="elevator">
-			<div class="elevator-door" id="left-elevator-door"></div>
-			<div class="elevator-door" id="right-elevator-door"></div>
-
-		</div>
-		<div id="panel">
-			<div id="panel-display"></div>
-			<div id="panel-input">
-				<table>
-					<tr>
-						<td class="panel-input-button" id="1">1</td>
-						<td class="panel-input-button" id="2">2</td>
-					</tr>
-					<tr>
-						<td class="panel-input-button" id="3">3</td>					
-						<td class="panel-input-button" id="4">4</td>
-					</tr>
-					<tr>
-						<td class="panel-input-button" id="5">5</td>
-						<td class="panel-input-button" id="6">6</td>
-					</tr>
-					<tr>
-						<td class="panel-input-button" id="7">7</td>
-						<td class="panel-input-button" id="8">8</td>
-					</tr>
-					<tr>
-						<td class="panel-input-button" id="9">9</td>
-						<td class="panel-input-button" id="10">10</td>
-					</tr>
-				</table>
-				<div id="enter">Enter</div>
+			<div class="btn-container floor">
+				<button class="btn-floor floor" data-set-floor="1">1</button>
+			</div>
+			<div class="btn-container floor">
+				<button class="btn-floor floor" data-set-floor="2">2</button>
+			</div>
+			<div class="btn-container floor">
+				<button class="btn-floor floor" data-set-floor="3">3</button>
+			</div>
+			<div class="btn-container floor">
+				<button class="btn-floor floor" data-set-floor="4">4</button>
+			</div>
+			<div class="btn-container floor">
+				<button class="btn-floor floor" data-set-floor="5">5</button>
+			</div>
+			<div class="btn-container floor">
+				<button class="btn-floor floor" data-set-floor="6">6</button>
 			</div>
 		</div>
 	</div>
-	
+	<div class="building">
+		<div class="elevator-container">
+			<div class="elevator">
+				<div class="elevator-door"></div>
+				<div class="elevator-light"></div>
+			</div>
+		</div>
+		<div class="floors">
+			<div class="floor" data-floor="0">
+				<div class="floor-door"></div>
+			</div>
+			<div class="floor" data-floor="1">
+				<div class="floor-window"></div>
+			</div>
+			<div class="floor" data-floor="2">
+				<div class="floor-window"></div>
+			</div>
+			<div class="floor" data-floor="3">
+				<div class="floor-window"></div>
+			</div>
+			<div class="floor" data-floor="4">
+				<div class="floor-window"></div>
+			</div>
+			<div class="floor" data-floor="5">
+				<div class="floor-window"></div>
+			</div>
+			<div class="floor" data-floor="6">
+				<div class="floor-window"></div>
+			</div>
+		</div>
+	</div>
 	<script src="../JAVASCRIPT/index.js"></script>
 </body>
+
 </html>
