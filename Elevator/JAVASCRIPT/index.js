@@ -144,7 +144,7 @@ window.onload = () => {
 		  button.classList.add("active");
 		} else {
 		  button.classList.remove("active");
-		}
+		}   
 	  });
 	}
   };
